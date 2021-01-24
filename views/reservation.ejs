@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>UGLI food</title>
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../css/fonts.css">
+        <link rel="stylesheet" type="text/css" href="../css/reservation.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <%- include("../partials/header.ejs") %>
+
+            <div class="reservation" id="order">
+                <h3 class="content-header__center content-header">Reservation</h3>
+                <h2 class="content-header-main content-header__center">Забронировать столик</h2>
+                <div class="order">
+                    <div class="funcs">
+                        <p class="funcs__text">Поиск столика</p>
+                        <a class="funcs__text orders" href="/profile"><p>Мои заказы</p></a>
+                    </div>
+                    <hr class="hr">
+                    <form class="settings" action="/reservation" method="POST">
+                        <div class="buttons__wrapper">
+
+                            <select class="settings__button" name="person">
+                                <option class="option" value="1">1 человек</option>
+                                <option value="2">2 человека</option>
+                                <option value="3">3 человека</option>
+                                <option value="4">4 человека</option>
+                                <option value="5">5 человек</option>
+                            </select>
+
+                            <input class="settings__button" name="date" type="date">
+
+                            <input class="settings__button" name="time" type="time" min="10:00" max="23:30" value="10:00">
+
+                        </div>
+                        <button class=" button reservation__button" type="submit" name="button">
+                            <p class="button__text">Забронировать</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+
+        <%- include("../partials/footer.ejs") %>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>UGLI food</title>
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/profile.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../css/fonts.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <%- include("../partials/header.ejs") %>
+            <h3 class="content-header__center content-header">Orders</h3>
+            <h2 class="content-header-main content-header__center">Мои заказы</h2>
+
+            <ol class="ol">
+                <% orders.forEach(function(order) { %>
+                    <li class="li"><%= 'Количество человек: ' + order.count + ', дата: ' + order.date + ', время: ' + order.time%></li>
+                    <hr class="hr">
+                <% }); %>
+            </ol>
+
+            <% if (orders.length === 0) { %>
+                <h1 class="no">У Вас нет активных заказов</h1>
+            <% }; %>
+            <a class="logout" href="/logout">Logout</a>
+        </div>
+        <%- include("../partials/footer.ejs") %>
+
+        <script src="../js/main.js"></script>
+    </body>
+</html>
